@@ -21,7 +21,6 @@ public class WikimediaChangesProducer {
 
         String topic = "wikimedia_recentchange";
 
-        // TODO: To read real time streaming data from wikimedia
         EventHandler eventHandler = new WikimediaChangesHandler(kafkaTemplate, topic);
         String url = "https://stream.wikimedia.org/v2/stream/recentchange";
 
