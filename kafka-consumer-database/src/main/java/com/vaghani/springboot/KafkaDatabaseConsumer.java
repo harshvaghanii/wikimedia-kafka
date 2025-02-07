@@ -15,8 +15,8 @@ public class KafkaDatabaseConsumer {
 
     private final WikimediaService wikimediaService;
 
-    @KafkaListener(topics = "wikimedia_recentchange",
-            groupId = "myGroup")
+    @KafkaListener(topics = "${topicname}",
+            groupId = "${groupname}")
     public void consume(String eventMessage) {
         log.info("Starting to save the message in DB at {}", LocalDateTime.now());
         log.info("Event data size is: {}", eventMessage.length());
