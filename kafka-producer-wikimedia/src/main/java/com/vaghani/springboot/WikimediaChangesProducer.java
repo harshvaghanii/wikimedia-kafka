@@ -26,9 +26,7 @@ public class WikimediaChangesProducer {
 
     public void sendMessage() throws InterruptedException {
 
-        String topic = "wikimedia_recentchange";
-
-        EventHandler eventHandler = new WikimediaChangesHandler(kafkaTemplate, topic);
+        EventHandler eventHandler = new WikimediaChangesHandler(kafkaTemplate, topicName);
         String url = "https://stream.wikimedia.org/v2/stream/recentchange";
 
         EventSource.Builder builder = new EventSource.Builder(eventHandler, URI.create(url));
